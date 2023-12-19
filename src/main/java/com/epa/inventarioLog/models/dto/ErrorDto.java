@@ -11,7 +11,7 @@ public class ErrorDto {
     private String tipo;
     private Object data;
 
-    private ErrorDto() {
+    public ErrorDto() {
     }
 
 

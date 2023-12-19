@@ -1,15 +1,10 @@
-package com.epa.inventarioLog.models.mongo;
+package com.epa.inventarioLog.models.dto;
 
-import com.epa.inventarioLog.models.dto.TransaccionDto;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.Objects;
 
-@Document("Log")
-public class Log {
-    @Id
+public class TransaccionDto {
     private String id;
     private String idProducto;
     private Date fecha;
@@ -19,8 +14,9 @@ public class Log {
     private double descuento;
     private String tipo;
 
-    public Log() {
+    public TransaccionDto() {
     }
+
 
     public String getId() {
         return id;
@@ -81,8 +77,8 @@ public class Log {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Log log)) return false;
-        return cantidad == log.cantidad && Double.compare(precio, log.precio) == 0 && Double.compare(descuento, log.descuento) == 0 && Objects.equals(id, log.id) && Objects.equals(idProducto, log.idProducto) && Objects.equals(fecha, log.fecha) && Objects.equals(tipo, log.tipo);
+        if (!(o instanceof TransaccionDto that)) return false;
+        return cantidad == that.cantidad && Double.compare(precio, that.precio) == 0 && Double.compare(descuento, that.descuento) == 0 && Objects.equals(id, that.id) && Objects.equals(idProducto, that.idProducto) && Objects.equals(fecha, that.fecha) && Objects.equals(tipo, that.tipo);
     }
 
     @Override

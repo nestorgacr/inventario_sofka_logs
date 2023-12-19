@@ -16,7 +16,7 @@ public class Error {
     private String tipo;
     private Object data;
 
-    private Error() {
+    public Error() {
     }
 
 

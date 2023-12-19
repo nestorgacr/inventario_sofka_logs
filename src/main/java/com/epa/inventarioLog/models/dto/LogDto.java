@@ -9,9 +9,9 @@ public class LogDto {
     private Date fecha;
     private String idProducto;
     private String tipo;
-    private Object data;
+    private TransaccionDto data;
 
-    private LogDto() {
+    public LogDto() {
     }
 
 
@@ -47,11 +47,11 @@ public class LogDto {
         this.tipo = tipo;
     }
 
-    public Object getData() {
+    public TransaccionDto getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(TransaccionDto data) {
         this.data = data;
     }
 
