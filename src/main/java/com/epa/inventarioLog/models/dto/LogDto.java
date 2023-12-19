@@ -1,8 +1,8 @@
 package com.epa.inventarioLog.models.dto;
 
-import com.epa.inventario.models.enums.TipoTransaccion;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class LogDto {
     private String id;
@@ -14,32 +14,56 @@ public class LogDto {
     private LogDto() {
     }
 
-    public static class Builder {
-        private LogDto log;
 
-        public Builder(String idProducto) {
-            log = new LogDto();
-            // agrega la fecha
-            log.fecha = new Date();
-            // agrega el id del producto
-            log.idProducto = idProducto;
-        }
+    public String getId() {
+        return id;
+    }
 
-        public Builder addTipo(TipoTransaccion tipo) {
-            log.tipo = tipo.toString();
-            return this;
-        }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-        public Builder addData(Object data) {
-            log.data = data;
-            return this;
-        }
+    public Date getFecha() {
+        return fecha;
+    }
 
-        public LogDto build() {
-            if (log.idProducto == null) {
-                throw new IllegalStateException("El ID del producto es obligatorio");
-            }
-            return log;
-        }
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(String idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof LogDto logDto)) return false;
+        return Objects.equals(id, logDto.id) && Objects.equals(fecha, logDto.fecha) && Objects.equals(idProducto, logDto.idProducto) && Objects.equals(tipo, logDto.tipo) && Objects.equals(data, logDto.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, fecha, idProducto, tipo, data);
     }
 }

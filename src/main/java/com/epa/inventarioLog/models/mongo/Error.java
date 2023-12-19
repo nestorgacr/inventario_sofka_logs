@@ -1,17 +1,22 @@
-package com.epa.inventarioLog.models.dto;
+package com.epa.inventarioLog.models.mongo;
 
 
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.Objects;
 
-public class ErrorDto {
+@Document("Error")
+public class Error {
+    @Id
     private String id;
     private Date fecha;
     private String tipo;
     private Object data;
 
-    private ErrorDto() {
+    private Error() {
     }
 
 
@@ -50,7 +55,7 @@ public class ErrorDto {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ErrorDto errorDto)) return false;
+        if (!(o instanceof Error errorDto)) return false;
         return Objects.equals(id, errorDto.id) && Objects.equals(fecha, errorDto.fecha) && Objects.equals(tipo, errorDto.tipo) && Objects.equals(data, errorDto.data);
     }
 
