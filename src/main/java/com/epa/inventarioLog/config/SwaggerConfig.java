@@ -19,16 +19,12 @@ public class SwaggerConfig {
         devServer.setUrl("http://localhost:8087/");
         devServer.setDescription("URL del Servidor de Desarrollo");
 
-        Contact contact = new Contact();
-        contact.setEmail("info@epa.com");
-        contact.setName("EPA");
-        contact.setUrl("https://cr.epaenlinea.com/contact");
+
 
         Info info = new Info()
-                .title("Documentación API´s Reto EPA")
+                .title("Documentación Inventario Log")
                 .version("1.0")
-                .contact(contact)
-                .description("Los metodos expuestos brindan la funcionalidad para el Modulo de Inventario.");
+                .description("Modulo de inventario");
 
         return new OpenAPI().info(info).servers(List.of(devServer));
     }
