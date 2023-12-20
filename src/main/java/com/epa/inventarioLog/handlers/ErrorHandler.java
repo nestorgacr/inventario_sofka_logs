@@ -24,7 +24,7 @@ public class ErrorHandler {
     {
 
         String pagina = request.pathVariable("pagina");
-        String tamanno = request.pathVariable("tamaño");
+        String tamanno = request.pathVariable("tamano");
 
         int numeroPagina = Integer.parseInt(pagina);
         int tamanoPagina = Integer.parseInt(tamanno);
